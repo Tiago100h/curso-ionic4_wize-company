@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Lista de Eventos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div *ngIf="data">
+    <ion-list *ngFor="let item of list">
+      <ion-item routerLink="{{item.id}}" routerDirection="forward">
+        <ion-avatar class="ion-margin-end">
+          <ion-img src={{item.thumbnail}}></ion-img>
+        </ion-avatar>
+        <ion-label>{{item.descricao}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="!data">
+    <ion-list *ngFor="let item of listSkeleton">
+      <ion-item>
+        <ion-avatar class="ion-margin-end">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+        <ion-skeleton-text animated width="80%"></ion-skeleton-text>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>
