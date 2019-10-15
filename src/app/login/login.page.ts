@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, MenuController } from '@ionic/angular';
 import { User } from '../interfaces/user';
 import { AuthService } from '../services/auth.service';
 
@@ -28,13 +28,16 @@ export class LoginPage implements OnInit {
 
   constructor(
     private loadingController: LoadingController,
-    private authService: AuthService
+    private authService: AuthService,
+    private menuController: MenuController
   ) { }
 
   ngOnInit() {
     this.passwordType = "password";
     this.eyeIcon = "eye";
     this.caminho = "../../assets/wize-logo.png";
+
+    this.menuController.enable(false);
   }
 
   async realizarLoginAsync() {

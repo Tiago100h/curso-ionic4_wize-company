@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, MenuController } from '@ionic/angular';
 import { User } from '../interfaces/user';
 import { AuthService } from '../services/auth.service';
 
@@ -29,10 +29,12 @@ export class CadastroPage implements OnInit {
 
   constructor(
     private loadingController: LoadingController,
-    private authService: AuthService
+    private authService: AuthService,
+    private menuController: MenuController
   ) { }
 
   ngOnInit() {
+    this.menuController.enable(false);
   }
 
 }
